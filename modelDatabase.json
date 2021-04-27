@@ -1,0 +1,145 @@
+{
+  "financeiro": {
+    "centro-custo": [
+      {
+        "nome": "Casa",
+        "child": [
+          "Obras",
+          "Manutencao",
+          "Limpeza"
+        ],
+        "obs": "Valores gastos referente a casa"
+      },
+      {
+        "nome": "Supermercado",
+        "obs": "Valores gastos no supermercado"
+      },
+      {
+        "nome": "Carro",
+        "child": [
+          "Troca de Oleo",
+          "Manutencao",
+          "Gasolina",
+          "Pneus",
+          "Som",
+          "Lava-rapido",
+          "Higienizacao",
+          "Outros"
+        ],
+        "obs": "Valores gastos com o carro"
+      },
+      {
+        "nome": "Alimentacao",
+        "obs": "Refeições feitas na rua"
+      },
+      {
+        "nome": "Contas",
+        "child": [
+          "Agua",
+          "Luz",
+          "Telefone",
+          "Internet",
+          "Gas",
+          "Faculdade",
+          "Cartao de Credito",
+          "Tarifas"
+        ],
+        "obs": "Pagamentos de contas, boletos, cartoes de credito, etc"
+      },
+      {
+        "nome": "Compras",
+        "child": [
+          "Acessorios",
+          "Roupas",
+          "Games",
+          "Online",
+          "Diversos",
+          "PC",
+          "Higienizacao",
+          "Outros"
+        ],
+        "obs": "Itens adquiridos, compras on-line e na loja"
+      },
+      {
+        "nome": "Outros",
+        "obs": "Custo nao catalogado"
+      }
+    ],
+    "centro-receita": [
+      {
+        "nome": "Salario",
+        "obs": "Salario recebido"
+      },
+      {
+        "nome": "Vale",
+        "obs": "Vale efetuado"
+      },
+      {
+        "nome": "Bico",
+        "obs": "Receita referente a bico"
+      },
+      {
+        "nome": "Freelance",
+        "obs": "Receita referente a freelance"
+      },
+      {
+        "nome": "Outros",
+        "obs": "Receita nao categorizada"
+      }
+    ],
+    "despesas": [
+      {
+        "centro-custo": [
+          "Contas",
+          "Agua"
+        ],
+        "descricao": "Conta de Agua",
+        "competencia": "04/2021",
+        "vencimento": "29/04/2021",
+        "parcelado": false,
+        "valor": {
+          "total": 25.49,
+          "pago": 25.49
+        }
+      },
+      {
+        "centro-custo": [
+          "Contas",
+          "Cartao de Credito"
+        ],
+        "descricao": "Cartao da nubank",
+        "parcelado": true,
+        "valor": {
+          "total": 350,
+          "parcelas": [
+            {
+              "ref": 1,
+              "valorParcela": 175,
+              "pago": 175,
+              "competencia": "04/2021",
+              "vencimento": "26/04/2021"
+            },
+            {
+              "ref": 2,
+              "valorParcela": 175,
+              "pago": null,
+              "competencia": "04/2021",
+              "vencimento": "26/04/2021"
+            }
+          ]
+        }
+      }
+    ],
+    "receitas": [
+      {
+        "centro-receita": "Salario",
+        "competencia": "04/2021",
+        "data-recebimento": "25/04/2021",
+        "valor": {
+          "total": 3500.50,
+          "pago": 3500.50
+        }
+      }
+    ]
+  }
+}

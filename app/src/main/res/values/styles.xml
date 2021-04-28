@@ -59,6 +59,12 @@
         <item name="android:textColor">?android:attr/textColorPrimary</item>
     </style>
 
+    <style name="TextAppearance.LarFinanca.Rodape" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="textAllCaps">false</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">?android:attr/textColorPrimary</item>
+    </style>
+
     <style name="Widget.LarFinanca.Backdrop" parent="">
         <item name="android:background">?attr/colorAccent</item>
     </style>

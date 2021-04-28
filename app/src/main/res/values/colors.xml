@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimary">#E0E0E0</color>
-    <color name="colorPrimaryDark">#FBB8AC</color>
-    <color name="colorAccent">#FEDBD0</color>
-    <color name="textColorPrimary">#442C2E</color>
-    <color name="toolbarIconColor">#FFFFFF</color>
-    <color name="loginPageBackgroundColor">#FFFFFF</color>
-    <color name="productGridBackgroundColor">#FFFBFA</color>
-    <color name="textInputOutlineColor">#FBB8AC</color>
+    <color name="colorPrimaryDark">#568EBC</color>
+    <color name="colorAccent">#7ECDF1</color>
+    <color name="textColorPrimary">@android:color/primary_text_light</color>
+    <color name="toolbarIconColor">@android:color/white</color>
+    <color name="loginPageBackgroundColor">@android:color/background_light</color>
+    <color name="productGridBackgroundColor">#C0DDF3</color>
+    <color name="textInputOutlineColor">@color/colorAccent</color>
 </resources>

@@ -4,7 +4,7 @@
       {
         "nome": "Casa",
         "child": [
-          "Obras",
+          "Obra",
           "Manutencao",
           "Limpeza"
         ],
@@ -136,10 +136,23 @@
         "competencia": "04/2021",
         "data-recebimento": "25/04/2021",
         "valor": {
-          "total": 3500.50,
-          "pago": 3500.50
+          "total": 3500.5,
+          "pago": 3500.5
         }
       }
-    ]
+    ],
+    "conta": [
+      {
+        "banco": "itau",
+        "conta": "corrente",
+        "saldo-inicial": 500.5
+      }
+    ],
+    "carteira":{
+      "saldo-inicial":0.00
+    }
+  },
+  "InfoGerais": {
+    "theme-dark": true
   }
 }

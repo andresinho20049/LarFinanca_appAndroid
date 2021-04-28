@@ -1,13 +1,8 @@
 package com.andre.larfinancas;
 
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -15,7 +10,6 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.andre.larfinancas.databinding.ActivityMainBinding;
-import com.andre.larfinancas.fragments.BlankFragment;
 import com.andre.larfinancas.fragments.LoginFragment;
 import com.andre.larfinancas.fragments.ProductGridFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -30,8 +24,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
     private static final String TAG = "MainActivity";
 
-    public static final String MESSAGES_CHILD = "messages";
-    public static final int DEFAULT_MSG_LENGTH_LIMIT = 10;
     public static final String ANONYMOUS = "anonymous";
 
     //CONFIG EMULATOR FIREBASE
@@ -40,22 +32,12 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
     private static final int PORT_EMULATOR_DATABASE = 9000;
     private static final String HOST_EMULATOR_DATABASE = "10.0.2.2";
 
-    private static final int REQUEST_INVITE = 1;
-    private static final int REQUEST_IMAGE = 2;
-    private static final String LOADING_IMAGE_URL = "https://www.google.com/images/spin-32.gif";
-    private static final String MESSAGE_SENT_EVENT = "message_sent";
-    private static final String MESSAGE_URL = "http://friendlychat.firebase.google.com/message/";
-
     private SharedPreferences mSharedPreferences;
     private GoogleSignInClient mSignInClient;
-
-    private ActivityMainBinding mBinding;
-    private LinearLayoutManager mLinearLayoutManager;
 
     // Firebase instance variables
     private FirebaseAuth mFirebaseAuth;
     private FirebaseDatabase mDatabase;
-//    private FirebaseRecyclerAdapter<FriendlyMessage, MessageViewHolder> mFirebaseAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, new BlankFragment())
+                .add(R.id.container, new ProductGridFragment())
                 .commit();
 
     }

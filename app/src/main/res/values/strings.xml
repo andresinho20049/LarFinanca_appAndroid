@@ -6,32 +6,22 @@
     <string name="login_page_rodape_msg">Ao utilizar o Lar &amp; Financas, você esta de acordo
         com nossos termos de Uso e Politica de Privacidade</string>
 
-    <string name="shr_app_name">Financas do Lar</string>
-    <string name="shr_hint_username">Username</string>
-    <string name="shr_hint_password">Password</string>
-    <string name="shr_button_next">Next</string>
-    <string name="shr_button_cancel">Cancel</string>
-    <string name="shr_error_password">Password must contain at least 8 characters.</string>
-    <string name="shr_filter_title">Filter</string>
-    <string name="shr_search_title">Search</string>
-    <string name="shr_product_title">Title</string>
-    <string name="shr_product_description">Secondary text</string>
-
-    <!-- Shrine backdrop menu labels -->
-    <string name="shr_featured_label">Featured</string>
-    <string name="shr_apartment_label">Apartment</string>
-    <string name="shr_accessories_label">Accessories</string>
-    <string name="shr_shoes_label">Shoes</string>
-    <string name="shr_tops_label">Tops</string>
-    <string name="shr_bottoms_label">Bottoms</string>
-    <string name="shr_dresses_label">Dresses</string>
-    <string name="shr_account_label">My Account</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Backdrop menu labels -->
+    <string name="item_dashboard">Painel</string>
+    <string name="item_receitas">Receitas</string>
+    <string name="item_despesas">Despesas</string>
+    <string name="item_conta">Conta</string>
+    <string name="item_categorias">Categorias</string>
+    <string name="item_perfil">Perfil</string>
 
     <!-- Dashboard Strings -->
     <string name="dash_saldo">Saldo</string>
     <string name="dash_receita">Receita</string>
     <string name="dash_despesa">Despesa</string>
+
+    <!-- Produto String -->
+    <string name="produto_titulo">Nome</string>
+    <string name="produto_descricao">Descrição</string>
+
 
 </resources>

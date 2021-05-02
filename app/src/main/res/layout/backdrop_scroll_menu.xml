@@ -3,45 +3,34 @@
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.LarFinanca.Button.TextButton"
+        android:id="@+id/backdrop_painel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shr_featured_label" />
+        android:text="@string/item_dashboard" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.LarFinanca.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shr_apartment_label" />
+        android:text="@string/item_receitas" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.LarFinanca.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shr_accessories_label" />
+        android:text="@string/item_despesas" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.LarFinanca.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shr_shoes_label" />
+        android:text="@string/item_conta" />
 
     <com.google.android.material.button.MaterialButton
         style="@style/Widget.LarFinanca.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shr_tops_label" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.LarFinanca.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/shr_bottoms_label" />
-
-    <com.google.android.material.button.MaterialButton
-        style="@style/Widget.LarFinanca.Button.TextButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/shr_dresses_label" />
+        android:text="@string/item_categorias" />
 
     <View
         android:layout_width="56dp"
@@ -53,6 +42,6 @@
         style="@style/Widget.LarFinanca.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/shr_account_label" />
+        android:text="@string/item_perfil" />
 
 </merge>

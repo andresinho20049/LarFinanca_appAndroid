@@ -3,13 +3,14 @@ package com.andre.larfinancas;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.view.View;
+import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.andre.larfinancas.databinding.ActivityMainBinding;
 import com.andre.larfinancas.fragments.LoginFragment;
 import com.andre.larfinancas.fragments.ProductGridFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -109,5 +110,20 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         }
 
         return ANONYMOUS;
+    }
+
+    public void setUpToolbar(View view) {
+        Toolbar toolbar = view.findViewById(R.id.app_bar);
+        AppCompatActivity activity = this;
+        if (activity != null) {
+            activity.setSupportActionBar(toolbar);
+        }
+
+        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
+                this,
+                view.findViewById(R.id.product_grid),
+                new AccelerateDecelerateInterpolator(),
+                this.getResources().getDrawable(R.drawable.ic_icon_menu), // Menu open icon
+                this.getResources().getDrawable(R.drawable.ic_icon_close_menu))); // Menu close icon
     }
 }

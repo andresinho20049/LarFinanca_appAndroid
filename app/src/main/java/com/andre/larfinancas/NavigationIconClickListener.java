@@ -1,4 +1,4 @@
-package com.andre.larfinancas.fragments;
+package com.andre.larfinancas;
 
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;

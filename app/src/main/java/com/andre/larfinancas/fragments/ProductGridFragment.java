@@ -8,20 +8,19 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.andre.larfinancas.MainActivity;
+import com.andre.larfinancas.NavigationHost;
 import com.andre.larfinancas.R;
 import com.andre.larfinancas.adapter.ProductCardRecyclerViewAdapter;
 import com.andre.larfinancas.service.ProductEntry;
 import com.andre.larfinancas.viewholder.ProductGridItemDecoration;
+import com.google.android.material.button.MaterialButton;
 
 public class ProductGridFragment extends Fragment {
 
@@ -32,7 +31,7 @@ public class ProductGridFragment extends Fragment {
         View view = inflater.inflate(R.layout.fragment_product_card, container, false);
 
         // Set up the toolbar
-        setUpToolbar(view);
+        ((MainActivity)getActivity()).setUpToolbar(view);
 
         // Set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
@@ -49,22 +48,15 @@ public class ProductGridFragment extends Fragment {
             view.findViewById(R.id.product_grid).setBackgroundResource(R.drawable.shr_product_grid_background_shape);
         }
 
+        MaterialButton painelButton = view.findViewById(R.id.backdrop_painel);
+        painelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ((NavigationHost) getActivity()).navigateTo(new DashFragment(), false);
+            }
+        });
+
         return view;
-    }
-
-    public void setUpToolbar(View view) {
-        Toolbar toolbar = view.findViewById(R.id.app_bar);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            activity.setSupportActionBar(toolbar);
-        }
-
-        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
-                getContext(),
-                view.findViewById(R.id.product_grid),
-                new AccelerateDecelerateInterpolator(),
-                getContext().getResources().getDrawable(R.drawable.shr_branded_menu), // Menu open icon
-                getContext().getResources().getDrawable(R.drawable.shr_close_menu))); // Menu close icon
     }
 
     @Override

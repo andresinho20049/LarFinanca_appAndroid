@@ -1,18 +1,14 @@
 package com.andre.larfinancas.fragments;
 
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.AccelerateDecelerateInterpolator;
+
+import androidx.fragment.app.Fragment;
 
 import com.andre.larfinancas.MainActivity;
 import com.andre.larfinancas.R;
@@ -26,24 +22,11 @@ public class DashFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_dash, container, false);
 
-        setUpToolbar(view);
+        ((MainActivity)getActivity()).setUpToolbar(view);
+
+
 
         return view;
-    }
-
-    private void setUpToolbar(View view) {
-        Toolbar toolbar = view.findViewById(R.id.app_bar);
-        AppCompatActivity activity = (AppCompatActivity) getActivity();
-        if (activity != null) {
-            activity.setSupportActionBar(toolbar);
-        }
-
-        toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
-                getContext(),
-                view.findViewById(R.id.product_grid),
-                new AccelerateDecelerateInterpolator(),
-                getContext().getResources().getDrawable(R.drawable.shr_branded_menu), // Menu open icon
-                getContext().getResources().getDrawable(R.drawable.shr_close_menu))); // Menu close icon
     }
 
     @Override

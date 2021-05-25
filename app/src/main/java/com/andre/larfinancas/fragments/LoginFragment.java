@@ -111,7 +111,7 @@ public class LoginFragment extends Fragment {
                         // If sign in succeeds the auth state listener will be notified and logic to
                         // handle the signed in user can be handled in the listener.
                         Log.d(TAG, "signInWithCredential:success");
-                        ((NavigationHost) getActivity()).navigateTo(new ProductGridFragment(), false);
+                        ((NavigationHost) getActivity()).navigateTo(new DashFragment(), false);
                     }
                 })
                 .addOnFailureListener(getActivity(), new OnFailureListener() {

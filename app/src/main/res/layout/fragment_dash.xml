@@ -24,7 +24,7 @@
         app:elevation="0dp">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/app_bar"
+            android:id="@+id/dash_id_app_bar"
             style="@style/Widget.LarFinanca.Toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
@@ -38,7 +38,7 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/product_grid"
+        android:id="@+id/dash_grid"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginTop="56dp"
@@ -48,11 +48,576 @@
         android:paddingEnd="@dimen/shr_product_grid_spacing"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_view"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        tools:ignore="HardcodedText">
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewSaldo"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="128dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginTop="20dp"
+            android:elevation="12dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/saldo_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="72dp"
+                    android:layout_marginTop="25dp"
+                    android:gravity="center"
+                    android:text="@string/dash_saldo"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dash_id_saldo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="R$ 0,00"
+                    android:textColor="@android:color/black"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/saldo_title"
+                    app:layout_constraintStart_toStartOf="@+id/saldo_title"
+                    app:layout_constraintTop_toBottomOf="@+id/saldo_title" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/dash_btn_extrato"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginEnd="20dp"
+                    android:text="Extrato"
+                    android:textColor="@color/cardview_dark_background"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/editProfileB"
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="@string/item_dashboard"
+                    android:textColor="@color/cardview_dark_background"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/cardMesComp"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:layout_marginTop="25dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="12dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewSaldo">
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/dash_id_comp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="10dp"
+                android:hint="@string/menu_mes_comp">
+
+                <AutoCompleteTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="date"
+                    android:elevation="8dp"
+                    android:labelFor="@id/dash_id_comp"
+                    />
+
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+        <!-- Card Receita e Despesa -->
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewReD"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="12dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardMesComp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/receita_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/dash_receita"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.144"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dash_id_receita"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="R$ 0,00"
+                    android:textColor="@android:color/holo_green_dark"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/receita_title"
+                    app:layout_constraintStart_toStartOf="@+id/receita_title"
+                    app:layout_constraintTop_toBottomOf="@+id/receita_title" />
+
+                <TextView
+                    android:id="@+id/despesa_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:gravity="center"
+                    android:text="@string/dash_despesa"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorPrimaryDark"
+                    android:textSize="21sp"
+                    android:textStyle="bold"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.84"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dash_id_despesa"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:layout_marginBottom="15dp"
+                    android:text="R$ 0,00"
+                    android:textColor="@android:color/holo_red_light"
+                    android:textSize="24sp"
+                    app:layout_constraintEnd_toEndOf="@+id/despesa_title"
+                    app:layout_constraintStart_toStartOf="@+id/despesa_title"
+                    app:layout_constraintTop_toBottomOf="@+id/despesa_title" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_horizontal"
+            android:orientation="horizontal"
+            android:weightSum="2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cardViewReD">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/contributeCard"
+                android:layout_width="168dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/pago_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:text="@string/dash_pago"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/dash_id_pago"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16sp"
+                        android:text="R$ 0,00"
+                        app:layout_constraintEnd_toEndOf="@+id/pago_title"
+                        app:layout_constraintStart_toStartOf="@+id/pago_title"
+                        app:layout_constraintTop_toBottomOf="@+id/pago_title" />
+
+                    <TextView
+                        android:id="@+id/pendente_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dash_pendentes"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/dash_id_pago"
+                        app:layout_constraintStart_toStartOf="@+id/dash_id_pago"
+                        app:layout_constraintTop_toBottomOf="@+id/dash_id_pago" />
+
+                    <TextView
+                        android:id="@+id/dash_id_pendente"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:layout_marginBottom="5dp"
+                        android:textSize="16sp"
+                        android:text="R$ 0,00"
+                        app:layout_constraintEnd_toEndOf="@+id/pendente_title"
+                        app:layout_constraintStart_toStartOf="@+id/pendente_title"
+                        app:layout_constraintTop_toBottomOf="@+id/pendente_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/contributeCard2"
+                android:layout_width="168dp"
+                android:layout_height="128dp"
+                android:layout_margin="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:elevation="12dp"
+                android:focusable="true"
+                android:foreground="?android:attr/selectableItemBackground"
+                app:cardCornerRadius="8dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/vencidas_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textSize="18sp"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:text="@string/dash_vencidas"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.504"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/dash_id_vencidas"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16sp"
+                        android:text="R$ 0,00"
+                        app:layout_constraintEnd_toEndOf="@+id/vencidas_title"
+                        app:layout_constraintStart_toStartOf="@+id/vencidas_title"
+                        app:layout_constraintTop_toBottomOf="@+id/vencidas_title" />
+
+                    <TextView
+                        android:id="@+id/em_aberto_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/dash_em_aberto"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@android:color/secondary_text_light"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="@+id/dash_id_vencidas"
+                        app:layout_constraintStart_toStartOf="@+id/dash_id_vencidas"
+                        app:layout_constraintTop_toBottomOf="@+id/dash_id_vencidas" />
+
+                    <TextView
+                        android:id="@+id/dash_id_em_aberto"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:textSize="16sp"
+                        android:text="R$ 0,00"
+                        app:layout_constraintEnd_toEndOf="@+id/em_aberto_title"
+                        app:layout_constraintStart_toStartOf="@+id/em_aberto_title"
+                        app:layout_constraintTop_toBottomOf="@+id/em_aberto_title" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cardViewAgendamento"
+            android:layout_width="match_parent"
+            android:layout_height="128dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:elevation="12dp"
+            app:cardCornerRadius="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <TextView
+                    android:id="@+id/dash_agendado_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/dash_agendado"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="18sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dash_id_agendado"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="16sp"
+                    android:text="R$ 0,00"
+                    app:layout_constraintEnd_toEndOf="@+id/dash_agendado_title"
+                    app:layout_constraintStart_toStartOf="@+id/dash_agendado_title"
+                    app:layout_constraintTop_toBottomOf="@+id/dash_agendado_title" />
+
+                <TextView
+                    android:id="@+id/dash_previsto_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/dash_saldo_previsto"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="@+id/dash_id_agendado"
+                    app:layout_constraintStart_toStartOf="@+id/dash_id_agendado"
+                    app:layout_constraintTop_toBottomOf="@+id/dash_id_agendado" />
+
+                <TextView
+                    android:id="@+id/dash_id_previsto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="5dp"
+                    android:textSize="16sp"
+                    android:text="R$ 0,00"
+                    app:layout_constraintEnd_toEndOf="@+id/dash_previsto_title"
+                    app:layout_constraintStart_toStartOf="@+id/dash_previsto_title"
+                    app:layout_constraintTop_toBottomOf="@+id/dash_previsto_title" />
+
+                <TextView
+                    android:id="@+id/dash_pgproximo_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/dash_pgproximo"
+                    android:textColor="@android:color/secondary_text_light"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/dash_id_pgproximo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:textSize="16sp"
+                    android:text="R$ 0,00"
+                    app:layout_constraintEnd_toEndOf="@+id/dash_pgproximo_title"
+                    app:layout_constraintStart_toStartOf="@+id/dash_pgproximo_title"
+                    app:layout_constraintTop_toBottomOf="@+id/dash_pgproximo_title" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <View
+        android:id="@+id/fabBGLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="1000dp"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:id="@+id/fabLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="23dp"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:translationZ="1000dp"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="23dp"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+        <!--    if you are not using Snackbar with this activity then remove below line from every place of the file:
+            app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+            the above line enables the view to Scrolls up with the snackbar as, the FAB do automaticaly scrolls up
+            when the snackbar appear, so if snackbar is not used please remove the above line from every view present in the xml-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:elevation="8dp"
+            android:shadowRadius="10"
+            android:shadowColor="@color/cardview_dark_background"
+            android:textAllCaps="true"
+            android:text="@string/menu_agendar"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_baseline_add_alert_24"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fabLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:layout_marginRight="23dp"
+        android:translationZ="1000dp"
+        android:gravity="center_vertical"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:layout_marginBottom="23dp"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:elevation="8dp"
+            android:shadowRadius="10"
+            android:shadowColor="@color/cardview_dark_background"
+            android:textAllCaps="true"
+            android:text="@string/menu_despesa"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_baseline_money_off_24"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/fabLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:translationZ="1000dp"
+        android:layout_marginRight="23dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="23dp"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:elevation="8dp"
+            android:shadowRadius="10"
+            android:shadowColor="@color/cardview_dark_background"
+            android:textAllCaps="true"
+            android:text="@string/menu_receita"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_baseline_attach_money_24"
+            android:tint="@android:color/white"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="26dp"
+        android:gravity="center_vertical"
+        android:translationZ="1000dp"
+        android:clipToPadding="false"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom|end">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:gravity="center_vertical"
+            app:srcCompat="@drawable/ic_baseline_add_24"
+            app:fabSize="normal"/>
+    </LinearLayout>
 </FrameLayout>

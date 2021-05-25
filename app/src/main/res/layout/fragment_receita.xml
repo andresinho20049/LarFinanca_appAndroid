@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ReceitaFragment">
+
+    <LinearLayout
+        style="@style/Widget.LarFinanca.Backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        android:paddingBottom="100dp">
+
+        <include layout="@layout/backdrop_scroll_menu" />
+    </LinearLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/receita_id_app_bar"
+            style="@style/Widget.LarFinanca.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="12dp"
+            android:paddingLeft="12dp"
+            android:paddingEnd="12dp"
+            android:paddingRight="12dp"
+            app:contentInsetStart="0dp"
+            app:navigationIcon="@drawable/ic_icon_menu"
+            app:title="@string/app_name" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/receita_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:elevation="8dp"
+        android:background="@color/productGridBackgroundColor"
+        android:paddingStart="@dimen/shr_product_grid_spacing"
+        android:paddingEnd="@dimen/shr_product_grid_spacing"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            tools:context=".fragments.ReceitaFragment"
+            tools:ignore="HardcodedText">
+
+                <LinearLayout
+                    android:orientation="vertical"
+                    android:layout_width="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/saldo_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="32dp"
+                        android:layout_marginBottom="50dp"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:text="@string/menu_receita"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <EditText
+                        android:id="@+id/receita_id_desc"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="@string/receita_desc"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="text"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/receita_id_comp"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="@string/receita_comp"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="date"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/receita_id_data"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="@string/receita_data"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="datetime"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/receita_id_valor"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="@string/receita_valor"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="numberDecimal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <Switch
+                        android:id="@+id/receita_id_switch"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/receita_switch" />
+
+                    <EditText
+                        android:id="@+id/receita_id_pagamento"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:hint="@string/receita_pagamento"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="datetime"
+                        android:visibility="gone"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <EditText
+                        android:id="@+id/receita_id_vpagamento"
+                        android:layout_width="match_parent"
+                        android:layout_height="45dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:layout_marginBottom="15dp"
+                        android:visibility="gone"
+                        android:hint="@string/receita_vpagamento"
+                        android:fontFamily="sans-serif-black"
+                        android:inputType="numberDecimal"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/receita_id_btnSalve"
+                        style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                        android:textColor="@color/colorPrimaryDark"
+                        android:layout_width="120dp"
+                        android:layout_gravity="center|bottom"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:text="@string/receita_btn"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>=
+</FrameLayout>

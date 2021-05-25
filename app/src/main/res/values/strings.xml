@@ -18,10 +18,51 @@
     <string name="dash_saldo">Saldo</string>
     <string name="dash_receita">Receita</string>
     <string name="dash_despesa">Despesa</string>
+    <string name="menu_mes_comp">Selecione o mês</string>
+    <string name="dash_pagamento">Pagamentos</string>
+    <string name="dash_pago">Pago</string>
+    <string name="dash_pendentes">Pendentes</string>
+    <string name="dash_vencidas">Vencidas</string>
+    <string name="dash_em_aberto">Em Aberto</string>
+    <string name="dash_agendado">Agendado</string>
+    <string name="dash_saldo_previsto">Saldo Previsto</string>
+    <string name="dash_pgproximo">Pagamento Proximo</string>
+    <string name="dash_balanco">Balanço Mensal</string>
+    <string name="dash_btn_agendar">Agendar</string>
+
+    <!-- Pagamento -->
+    <string name="extrato_name">Extrato</string>
+    <string name="extrato_mes">Mês: </string>
+    <string name="extrato_saldo">Saldo Atual</string>
+
+    <!-- Menu -->
+    <string name="menu_receita">Nova Receita</string>
+    <string name="menu_despesa">Nova Despesa </string>
+    <string name="menu_agendar">Agendar</string>
+
+    <!-- Receita -->
+    <string name="receita_desc">Descrição</string>
+    <string name="receita_comp">Competência </string>
+    <string name="receita_data">Data</string>
+    <string name="receita_valor">Valor</string>>
+    <string name="receita_switch">Pago</string>
+    <string name="receita_pagamento">Data do Pagamento</string>
+    <string name="receita_vpagamento">Valor Pago</string>
+    <string name="receita_btn">Salvar</string>
+
+    <!-- Extrato -->
+    <string name="extrato_desc">Descrição</string>
+    <string name="extrato_tipo">Movimentação </string>
+    <string name="extrato_data">Data Pagamento</string>
+    <string name="extrato_valor">Valor</string>>
+
+
 
     <!-- Produto String -->
     <string name="produto_titulo">Nome</string>
     <string name="produto_descricao">Descrição</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 
 </resources>

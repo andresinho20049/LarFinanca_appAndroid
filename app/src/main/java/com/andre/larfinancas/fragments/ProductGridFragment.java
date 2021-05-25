@@ -28,10 +28,10 @@ public class ProductGridFragment extends Fragment {
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment with the ProductGrid theme
-        View view = inflater.inflate(R.layout.fragment_product_card, container, false);
+        View view = inflater.inflate(R.layout.fragment_tela, container, false);
 
         // Set up the toolbar
-        ((MainActivity)getActivity()).setUpToolbar(view);
+        ((MainActivity)getActivity()).setUpToolbar(view, R.id.product_grid, R.id.app_bar);
 
         // Set up the RecyclerView
         RecyclerView recyclerView = view.findViewById(R.id.recycler_view);

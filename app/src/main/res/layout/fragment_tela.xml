@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.ProductGridFragment">
+
+    <LinearLayout
+        android:id="@+id/fragment_id"
+        style="@style/Widget.LarFinanca.Backdrop"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:paddingTop="100dp"
+        android:paddingBottom="100dp">
+
+        <include layout="@layout/backdrop_scroll_menu" />
+    </LinearLayout>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:elevation="0dp">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/app_bar"
+            style="@style/Widget.LarFinanca.Toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:paddingStart="12dp"
+            android:paddingLeft="12dp"
+            android:paddingEnd="12dp"
+            android:paddingRight="12dp"
+            app:contentInsetStart="0dp"
+            app:navigationIcon="@drawable/ic_icon_menu"
+            app:title="@string/app_name" />
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/product_grid"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="56dp"
+        android:elevation="4dp"
+        android:translationZ="0dp"
+        android:background="@color/productGridBackgroundColor"
+        android:paddingStart="@dimen/shr_product_grid_spacing"
+        android:paddingEnd="@dimen/shr_product_grid_spacing"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:paddingBottom="48dp"
+            android:clipToPadding="false"/>
+
+    </androidx.core.widget.NestedScrollView>
+
+    <View
+        android:id="@+id/fabBGLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:translationZ="1000dp"
+        android:visibility="gone"/>
+    <LinearLayout
+        android:id="@+id/fabLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="23dp"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:translationZ="1000dp"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="23dp"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+        <!--    if you are not using Snackbar with this activity then remove below line from every place of the file:
+            app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+            the above line enables the view to Scrolls up with the snackbar as, the FAB do automaticaly scrolls up
+            when the snackbar appear, so if snackbar is not used please remove the above line from every view present in the xml-->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:elevation="8dp"
+            android:shadowRadius="10"
+            android:shadowColor="@color/cardview_dark_background"
+            android:textAllCaps="true"
+            android:text="@string/menu_agendar"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_baseline_add_alert_24"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/fabLayout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:layout_marginRight="23dp"
+        android:translationZ="1000dp"
+        android:gravity="center_vertical"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:layout_marginBottom="23dp"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:elevation="8dp"
+            android:shadowRadius="10"
+            android:shadowColor="@color/cardview_dark_background"
+            android:textAllCaps="true"
+            android:text="@string/menu_despesa"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_baseline_money_off_24"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/fabLayout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:clipToPadding="false"
+        android:translationZ="1000dp"
+        android:layout_marginRight="23dp"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="23dp"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:layout_gravity="bottom|end"
+        android:visibility="gone">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14sp"
+            android:elevation="8dp"
+            android:shadowRadius="10"
+            android:shadowColor="@color/cardview_dark_background"
+            android:textAllCaps="true"
+            android:text="@string/menu_receita"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            app:srcCompat="@drawable/ic_baseline_attach_money_24"
+            android:tint="@android:color/white"
+            app:fabSize="mini"/>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="26dp"
+        android:gravity="center_vertical"
+        android:translationZ="1000dp"
+        android:clipToPadding="false"
+        app:layout_behavior="com.ajaysinghdewari.floatingactionbuttonmenu.activities.utils.MoveUpwardBehavior"
+        android:padding="12dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom|end">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|end"
+            android:gravity="center_vertical"
+            app:srcCompat="@drawable/ic_baseline_add_24"
+            app:fabSize="normal"/>
+    </LinearLayout>
+    <!--<com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floating_action_button"
+        app:layout_anchor="@id/fragment_id"
+        app:layout_anchorGravity="bottom|right"
+        android:layout_gravity="bottom|right"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:elevation="20dp"
+        android:layout_margin="16dp"
+        android:translationZ="1000dp"
+        android:contentDescription="@string/item_dashboard"
+        app:srcCompat="@drawable/ic_baseline_add_24"/>-->
+
+</FrameLayout>

@@ -11,6 +11,7 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.andre.larfinancas.fragments.DashFragment;
 import com.andre.larfinancas.fragments.LoginFragment;
 import com.andre.larfinancas.fragments.ProductGridFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -57,8 +58,6 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
         //Instace firebase
         mFirebaseAuth = FirebaseAuth.getInstance();
-        mDatabase = FirebaseDatabase.getInstance();
-
         if (savedInstanceState == null && mFirebaseAuth.getCurrentUser() == null) {
             getSupportFragmentManager()
                     .beginTransaction()
@@ -68,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
         getSupportFragmentManager()
                 .beginTransaction()
-                .add(R.id.container, new ProductGridFragment())
+                .add(R.id.container, new DashFragment())
                 .commit();
 
     }
@@ -112,8 +111,16 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
         return ANONYMOUS;
     }
 
-    public void setUpToolbar(View view) {
-        Toolbar toolbar = view.findViewById(R.id.app_bar);
+    public String getUserId() {
+        FirebaseUser user = mFirebaseAuth.getCurrentUser();
+        if (user != null) {
+            return user.getUid();
+        }
+        return ANONYMOUS;
+    }
+
+    public void setUpToolbar(View view, int idGridScroll, int idToolbar) {
+        Toolbar toolbar = view.findViewById(idToolbar);
         AppCompatActivity activity = this;
         if (activity != null) {
             activity.setSupportActionBar(toolbar);
@@ -121,7 +128,7 @@ public class MainActivity extends AppCompatActivity implements NavigationHost {
 
         toolbar.setNavigationOnClickListener(new NavigationIconClickListener(
                 this,
-                view.findViewById(R.id.product_grid),
+                view.findViewById(idGridScroll),
                 new AccelerateDecelerateInterpolator(),
                 this.getResources().getDrawable(R.drawable.ic_icon_menu), // Menu open icon
                 this.getResources().getDrawable(R.drawable.ic_icon_close_menu))); // Menu close icon
